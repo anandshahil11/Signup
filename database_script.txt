@@ -1,0 +1,189 @@
+mysql> create table track_status (name varchar(1000),status varchar(1000),message varchar(1000));
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> insert into track_status ('Processed Fail',NULL,'Your Order is failed.');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Processed Fail',NULL,'Your Order is failed.')' at line 1
+mysql> insert into track_status ('Processed Fail',null,'Your Order is failed.');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Processed Fail',null,'Your Order is failed.')' at line 1
+mysql> insert into track_status values ('Processed Fail',NULL,'Your Order is failed.');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from order_dashboard.track_status;
++----------------+--------+-----------------------+
+| name           | status | message               |
++----------------+--------+-----------------------+
+| Processed Fail | NULL   | Your Order is failed. |
++----------------+--------+-----------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into track_status values ('Processed Fail','1','Your Order is failed.');
+insert into track_status values ('Processed Success','2','Your order Received.');
+insert into track_status values ('Processed Success','3','Your order is dispatched /with Courier.');
+insert into track_status values ('Processed Success','4','Your order is dispatched /with Courier.');
+insert into track_status values ('Processed Success','5','Your order is cancelled.');
+insert into track_status values ('Processed Success','6','Your order is pending cancellation.');Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into track_status values ('Processed Success','2','Your order Received.');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into track_status values ('Processed Success','3','Your order is dispatched /with Courier.');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into track_status values ('Processed Success','4','Your order is dispatched /with Courier.');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into track_status values ('Processed Success','5','Your order is cancelled.');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into track_status values ('Processed Success','6','Your order is pending cancellation.');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from order_dashboard.track_status;
++-------------------+--------+-----------------------------------------+
+| name              | status | message                                 |
++-------------------+--------+-----------------------------------------+
+| Processed Fail    | NULL   | Your Order is failed.                   |
+| Processed Fail    | 1      | Your Order is failed.                   |
+| Processed Success | 2      | Your order Received.                    |
+| Processed Success | 3      | Your order is dispatched /with Courier. |
+| Processed Success | 4      | Your order is dispatched /with Courier. |
+| Processed Success | 5      | Your order is cancelled.                |
+| Processed Success | 6      | Your order is pending cancellation.     |
++-------------------+--------+-----------------------------------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from order_dashboard.track_status;
++-------------------+--------+-----------------------------------------+
+| name              | status | message                                 |
++-------------------+--------+-----------------------------------------+
+| Processed Fail    | NULL   | Your Order is failed.                   |
+| Processed Fail    | 1      | Your Order is failed.                   |
+| Processed Success | 2      | Your order Received.                    |
+| Processed Success | 3      | Your order is dispatched /with Courier. |
+| Processed Success | 4      | Your order is dispatched /with Courier. |
+| Processed Success | 5      | Your order is cancelled.                |
+| Processed Success | 6      | Your order is pending cancellation.     |
++-------------------+--------+-----------------------------------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT message from track_status where name='Processed Fail';
++-----------------------+
+| message               |
++-----------------------+
+| Your Order is failed. |
+| Your Order is failed. |
++-----------------------+
+2 rows in set (0.00 sec)
+
+
+
+mysql> SELECT message from track_status where name='Processed Fail' and status is NULL;
++-----------------------+
+| message               |
++-----------------------+
+| Your Order is failed. |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into track_status values ('COM',NULL,'Your order is dispatched /with Courier.');
+insert into track_status values ('CAN',NULL,'Your order is cancelled.');
+insert into track_status values ('EXE',NULL,'Your order is in progess.');
+insert into track_status values ('FAIL',NULL,'Your order is in progess.');
+insert into track_status values ('NRD',NULL,'Your order is in progress.');
+insert into track_status values ('RDY',NULL,'Your order is in progress.');Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into track_status values ('CAN',NULL,'Your order is cancelled.');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into track_status values ('EXE',NULL,'Your order is in progess.');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into track_status values ('FAIL',NULL,'Your order is in progess.');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into track_status values ('NRD',NULL,'Your order is in progress.');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into track_status values ('RDY',NULL,'Your order is in progress.');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from order_dashboard.track_status;
++-------------------+--------+-----------------------------------------+
+| name              | status | message                                 |
++-------------------+--------+-----------------------------------------+
+| Processed Fail    | NULL   | Your Order is failed.                   |
+| Processed Fail    | 1      | Your Order is failed.                   |
+| Processed Success | 2      | Your order Received.                    |
+| Processed Success | 3      | Your order is dispatched /with Courier. |
+| Processed Success | 4      | Your order is dispatched /with Courier. |
+| Processed Success | 5      | Your order is cancelled.                |
+| Processed Success | 6      | Your order is pending cancellation.     |
+| COM               | NULL   | Your order is dispatched /with Courier. |
+| CAN               | NULL   | Your order is cancelled.                |
+| EXE               | NULL   | Your order is in progess.               |
+| FAIL              | NULL   | Your order is in progess.               |
+| NRD               | NULL   | Your order is in progress.              |
+| RDY               | NULL   | Your order is in progress.              |
++-------------------+--------+-----------------------------------------+
+13 rows in set (0.00 sec)
+
+insert into track_status values ('COM',NULL,'Your order is dispatched /with Courier.');
+insert into track_status values ('CAN',NULL,'Your order is cancelled.');
+insert into track_status values ('EXE',NULL,'Your order is in progess.');
+insert into track_status values ('FAIL',NULL,'Your order is in progess.');
+insert into track_status values ('NRD',NULL,'Your order is in progress.');
+insert into track_status values ('RDY',NULL,'Your order is in progress.');
+
+UPDATE track_status SET message='Your order has now been dispatched. To track your delivery, please click here.' WHERE name='COM';
+
+UPDATE track_status SET message='Your order has been received and is currently being processed. We will confirm the delivery timeframe soon and you will receive an SMS once your order has left the warehouse. Please return to this page if you would like to track your order as it progresses.' WHERE name='FAIL';
+
+UPDATE track_status SET message='Your order has been received and is currently being processed. We will confirm the delivery timeframe soon and you will receive an SMS once your order has left the warehouse. Please return to this page if you would like to track your order as it progresses.' WHERE name='EXE';
+
+UPDATE track_status SET message='Unfortunately, your application has not met the Optus criteria. We wre unable to offer you this service. Please contact xxx if you need further information.Your order has been cancelled. Please call xxx if you require further information' WHERE name='CAN';
+
+UPDATE track_status SET message='Your order has been received and is currently being processed. We will confirm the delivery timeframe soon and you will receive an SMS once your order has left the warehouse. Please return to this page if you would like to track your order as it progresses.' WHERE name='RDY';
+
+UPDATE track_status SET message='Your order has been received and is currently being processed. We will confirm the delivery timeframe soon and you will receive an SMS once your order has left the warehouse. Please return to this page if you would like to track your order as it progresses.' WHERE name='NRD';
+
+UPDATE track_status SET message='Unfortunately, your application has not met the Optus criteria. We are unable to offer you this service at the present time. Please contact xxx  between the hours of xxx if you need further information.' WHERE name='CAN';
+
+insert into track_status values ('NOSTOCK',NULL,'Your order has been received and is currently awaiting stock availability. We will confirm the delivery timeframe soon and you will receive an SMS once your order has left the warehouse. Please return to this page if you would like to track your order as it progresses.');
+
+-----------------------------------------------------------------------------------------------------------
+
+UPDATE track_status SET message='Unfortunately, your application has not met the Optus criteria. We wre unable to offer you this service. Please contact xxx if you need further information.Your order has been cancelled. Please call xxx if you require further information' WHERE name='Processed Success' and status='6';
+
+
+UPDATE track_status SET message='Unfortunately, your application has not met the Optus criteria. We wre unable to offer you this service. Please contact xxx if you need further information.Your order has been cancelled. Please call xxx if you require further information' WHERE name='Processed Success' and status='5';
+
+
+UPDATE track_status SET message='Your order has been dispatched. To track your delivery, please click here.' WHERE name='Processed Success' and status='4';
+
+UPDATE track_status SET message='Your order has been dispatched. To track your delivery, please click here.' WHERE name='Processed Success' and status='3';
+
+UPDATE track_status SET message='Your order has been received. It is currently being processed.' WHERE name='Processed Success' and status='2';
+
+UPDATE track_status SET message='Your order is currently being processed. We will confirm the delivery timeframes soon. If you need further details please contact' WHERE name='Processed Fail' and status='1';
+
+
+UPDATE track_status SET message='Your order is currently being processed. We will confirm the delivery timeframes soon. If you need further details please contact' WHERE name='Processed Fail' and status is NULL;
+
+
+
+
+
+
+UPDATE track_status SET message='Your order has been dispatched. To track your delivery, please click here.' WHERE name='COM';
+
+
+UPDATE track_status SET message='Your order has been dispatched. To track your delivery, please click here.' WHERE name='COM';
+
+
+
+
+
+
+
+
+

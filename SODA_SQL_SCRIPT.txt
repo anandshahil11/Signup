@@ -1,0 +1,558 @@
+---------------------------------------
+TO delete incomplete orders from soda db
+---------------------------------------
+
+select id,REFERENCE,SOS_ACCOUNT_NUMBER from soda.QUOTE where SOS_ACCOUNT_NUMBER=92917011000290
+
+select * from soda.ORDERS where quote in (2843,2844,2845)
+
+
+delete from soda.QUOTE_PRODUCTS where QUOTE_ID=2845
+
+delete from soda.QUOTE_LOCATION_NODES where QUOTE_ID=2845
+
+delete from soda.QUOTE_BUSINESS_AREAS where QUOTE_ID=2845
+
+delete from soda.QUOTE where id in (2845) 
+
+
+
+------------------------------------------------------------------------------------
+
+select * from soda.orders where ACCOUNT_STATUS='ACTIVE'and WORKFLOW_STATUS='SUBMITTED';
+
+select * from soda.orders where ACCOUNT_STATUS='ACTIVE'and WORKFLOW_STATUS='COMPLETE';
+
+
+select count(*) from soda.orders where ACCOUNT_STATUS='ACTIVE' and WORKFLOW_STATUS='COMPLETE'
+
+select * from soda.ORDERS_AUD where SOS_ACCOUNT_NUMBER like '%000000000%'
+
+select SOS_ACCOUNT_NUMBER,SOS_REFERENCE_NUMBER,ACCOUNT_STATUS,WORKFLOW_STATUS from soda.orders where DOMAIN_NAME like '%dominkopainter.com.au%'
+
+select account_status,workflow_status,ID from soda.ORDERS where QUOTE='1503'
+
+select * from soda.QUOTE where REFERENCE='4edf54ba316a'
+
+select * from soda.ORDER_TSA_CAMPAIGN where ORDER_ID='1422'
+
+update soda.ORDERS set WORKFLOW_STATUS='COMPLETE' where id='1422'
+
+commit;
+
+select * from soda.QUOTE where REFERENCE='88410a7417b9'
+
+select account_status,workflow_status,ID from soda.ORDERS where QUOTE='1716'
+
+update soda.ORDERS SET WORKFLOW_STATUS='SUBMITTED' where id='1647' 
+
+
+update soda.ORDERS SET ACCOUNT_STATUS='CANCELED' where id='1647' 
+
+select account_status,workflow_status,ID from soda.ORDERS where ACCOUNT_STATUS='CANCELED' and WORKFLOW_STATUS='SUBMITTED'
+
+select * from soda.QUOTE where REFERENCE='f13a4d86c40e'
+
+select account_status,workflow_status,ID from soda.ORDERS where QUOTE='1612'
+
+update soda.ORDERS set account_status='CANCELED' where id='1528'
+
+select  from soda.QUOTE where REFERENCE='88410a7417b9'
+
+select distinct(account_status) from soda.ORDERS
+
+select distinct(workflow_status) from soda.ORDERS
+
+
+
+select domain_name from soda.ORDERS where ACCOUNT_STATUS='ACTIVE' and WORKFLOW_STATUS='SUBMITTED'
+
+
+select domain_name from soda.ORDERS where ACCOUNT_STATUS='ACTIVE' and WORKFLOW_STATUS='COMPLETE'
+
+
+select * from soda.QUOTE where REFERENCE='aa92a5dbe6f9'
+
+select ORDERS.BUSINESS_CONTACT_NUMBER,ORDERS.PHONE,ORDERS.MOBILE,ORDERS.VOIP_NUMBER,ORDERS.DOMAIN_NAME from soda.ORDERS where QUOTE='1785'
+
+
+
+select distinct(WORKFLOW_STATUS) from soda.orders
+
+select id,SOS_ACCOUNT_NUMBER,WORKFLOW_STATUS,ACCOUNT_STATUS,DOMAIN_NAME from soda.ORDERS where DOMAIN_NAME='urbangrillandkebab.com.au' and id=1422
+
+update soda.ORDERS set WORKFLOW_STATUS='SUBMITTED' where ID=1422
+
+
+select SOS_ACCOUNT_NUMBER,ID from soda.quote where MSISDN='0478003472'
+
+select id,SOS_ACCOUNT_NUMBER,QUOTE from soda.ORDERS where MSISDN='0478003472'
+
+
+select * from soda.QUOTE where SOS_ACCOUNT_NUMBER='83091198000168'
+
+select id,QUOTE from soda.ORDERS where SOS_ACCOUNT_NUMBER='83091198000168'
+
+select * from soda.ORDER_TSA_CAMPAIGN where ORDER_ID='687'
+
+select count(*) from soda.ORDER_TSA_CAMPAIGN_AUD where ORDER_ID='687'
+
+
+
+select product,id,WORKFLOW_STATUS,ACCOUNT_STATUS, CREATED_ON,UPDATED_ON,DOMAIN_NAME,ELIGIBILITY_TYPE,QUOTE from soda.ORDERS where SOS_ACCOUNT_NUMBER='85078356000128'
+
+select * from soda.QUOTE 
+
+select  * from soda.product
+
+select * from soda.ORDER_TSA_CAMPAIGN where ORDER_ID='1089' 
+
+select distinct(workflow_status) from soda.ORDERS
+
+select id,quote,SOS_ACCOUNT_NUMBER,WORKFLOW_STATUS,ACCOUNT_STATUS from soda.ORDERS where SOS_ACCOUNT_NUMBER='82404386000297'
+
+update soda.ORDERS set WORKFLOW_STATUS='COMPLETE',ACCOUNT_STATUS='CANCELED' where SOS_ACCOUNT_NUMBER='82404386000297'
+
+
+
+
+select id,SOS_ACCOUNT_NUMBER from soda.QUOTE where REFERENCE='b2ddfef4b02f'
+
+select id,quote,SOS_ACCOUNT_NUMBER,WORKFLOW_STATUS,ACCOUNT_STATUS from soda.ORDERS where QUOTE='1247'
+
+update soda.ORDERS set WORKFLOW_STATUS='COMPLETE',ACCOUNT_STATUS='CANCELED' where SOS_ACCOUNT_NUMBER='87965054000177' and quote='1247'
+
+
+select id,SOS_ACCOUNT_NUMBER from soda.QUOTE where REFERENCE='6d938d4fb029'
+
+select id,quote,SOS_ACCOUNT_NUMBER,WORKFLOW_STATUS,ACCOUNT_STATUS from soda.ORDERS where QUOTE='1752'
+
+update soda.ORDERS set WORKFLOW_STATUS='COMPLETE',ACCOUNT_STATUS='CANCELED' where SOS_ACCOUNT_NUMBER='11492414000176' and quote='1752'
+
+
+
+
+
+update soda.ORDERS set DOMAIN_NAME='raystowing.com.au' where ID='1211' and QUOTE='1315'
+
+update soda.ORDERS set DOMAIN_NAME='wisterialanehomes.com.au' where ID='1443' and QUOTE='1524'
+
+update soda.ORDERS set DOMAIN_NAME='parss.com.au' where ID='710' and QUOTE='819'
+
+update soda.ORDERS set DOMAIN_NAME='turkishgoldendirectory.com.au' where ID='1823' and QUOTE='1944'
+
+update soda.ORDERS set DOMAIN_NAME='jasancontracting.com.au' where ID='1892' and QUOTE='2044'
+
+update soda.ORDERS set DOMAIN_NAME='melaniepriceart.com.au' where ID='1087' and QUOTE='1167'
+
+
+update soda.ORDERS set DOMAIN_NAME='constructcom.com.au' where ID='479' and QUOTE='547'
+
+update soda.ORDERS set DOMAIN_NAME='legworkpainting.com.au' where ID='379' and QUOTE='422'
+
+update soda.ORDERS set DOMAIN_NAME='cpscon.com.au' where ID='399' and QUOTE='445'
+
+update soda.ORDERS set DOMAIN_NAME='dcearthmoving.com.au' where ID='410' and QUOTE='461'
+
+update soda.ORDERS set DOMAIN_NAME='asianhut.com.au' where ID='754' and QUOTE='877'
+
+
+--------------------------------------------------------------------------------------------------------------------
+PPT
+-----------------------------------------------------------------------------------------------------------------
+
+
+select WORKFLOW_STATUS,ACCOUNT_STATUS from soda.orders where SOS_ACCOUNT_NUMBER='11111111'
+
+
+select distinct(WORKFLOW_STATUS) from soda.orders
+
+select SOS_ACCOUNT_NUMBER,INCOMPLETE_ORDER_DATA from soda.QUOTE where REFERENCE='1bf6da5fe204'
+
+---------------------------------------
+
+
+
+select distinct(WORKFLOW_STATUS) from soda.orders
+
+select id,SOS_ACCOUNT_NUMBER,WORKFLOW_STATUS,ACCOUNT_STATUS,DOMAIN_NAME from soda.ORDERS where DOMAIN_NAME='urbangrillandkebab.com.au' and id=1422
+
+
+
+
+select SOS_ACCOUNT_NUMBER,ID from soda.quote where MSISDN='0478003472'
+
+select id,SOS_ACCOUNT_NUMBER,QUOTE from soda.ORDERS where MSISDN='0478003472'
+
+
+select * from soda.QUOTE where SOS_ACCOUNT_NUMBER='83091198000168'
+
+select id,QUOTE from soda.ORDERS where SOS_ACCOUNT_NUMBER='83091198000168'
+
+select * from soda.ORDER_TSA_CAMPAIGN where ORDER_ID='687'
+
+select count(*) from soda.ORDER_TSA_CAMPAIGN_AUD where ORDER_ID='687'
+
+
+
+select product,id,WORKFLOW_STATUS,ACCOUNT_STATUS, CREATED_ON,UPDATED_ON,DOMAIN_NAME,ELIGIBILITY_TYPE,QUOTE from soda.ORDERS where SOS_ACCOUNT_NUMBER='85078356000128'
+
+select * from soda.QUOTE 
+
+select  * from soda.product
+
+select * from soda.ORDER_TSA_CAMPAIGN where ORDER_ID='1089' 
+
+select distinct(workflow_status) from soda.ORDERS
+
+select id,quote,SOS_ACCOUNT_NUMBER,WORKFLOW_STATUS,ACCOUNT_STATUS from soda.ORDERS where SOS_ACCOUNT_NUMBER='86719605000107' and quote='1744'
+
+select id,MSISDN,SOS_ACCOUNT_NUMBER,WORKFLOW_STATUS,ACCOUNT_STATUS,DOMAIN_NAME from soda.ORDERS where SOS_ACCOUNT_NUMBER='91549966000178' and  MSISDN='0402768859'
+
+
+update soda.orders set DOMAIN_NAME='limousinehireservicemelbourne.com.au' where SOS_ACCOUNT_NUMBER='91549966000178' and  MSISDN='0402768859'
+
+select id,quote,MSISDN,SOS_ACCOUNT_NUMBER,WORKFLOW_STATUS,ACCOUNT_STATUS,DOMAIN_NAME,CREATED_ON,UPDATED_ON from soda.ORDERS where SOS_ACCOUNT_NUMBER='82404386000297' 
+
+
+select id,SOS_ACCOUNT_NUMBER from soda.QUOTE where REFERENCE='d00aae4e9d01'
+
+select id,quote,SOS_ACCOUNT_NUMBER,WORKFLOW_STATUS,ACCOUNT_STATUS,CREATED_ON,UPDATED_ON from soda.ORDERS where QUOTE='631'
+
+
+update soda.ORDERS set WORKFLOW_STATUS='COMPLETE',ACCOUNT_STATUS='CANCELED' where SOS_ACCOUNT_NUMBER='97000190000144' and quote='631'
+
+select * from soda.ORDERS where SOS_ACCOUNT_NUMBER='93570780000136'
+
+select * from soda.QUOTE where ID='2198' 
+
+select id,NAME from soda.PRODUCT where id in (1,12)
+
+select ACCOUNT_STATUS,WORKFLOW_STATUS,DOMAIN_NAME,SOS_ACCOUNT_NUMBER,CREATED_ON,UPDATED_ON,PRODUCT,WAM_UID from soda.ORDERS_AUD where SOS_ACCOUNT_NUMBER='97501709000150'
+
+select ACCOUNT_STATUS,WORKFLOW_STATUS,DOMAIN_NAME,SOS_ACCOUNT_NUMBER,CREATED_ON,UPDATED_ON,PRODUCT,WAM_UID from soda.ORDERS where SOS_ACCOUNT_NUMBER='97501709000150'
+
+select  * from soda.product
+
+
+select MSISDN,VOIP_NUMBER,SOS_ACCOUNT_NUMBER,DOMAIN_NAME,WORKFLOW_STATUS,ACCOUNT_STATUS,SOS_REFERENCE_NUMBER from soda.orders where DOMAIN_NAME='1300sparkesa.com.au'
+
+select MSISDN,VOIP_NUMBER,SOS_ACCOUNT_NUMBER from soda.ORDERS_AUD where DOMAIN_NAME='1300sparkesa.com.au'
+
+update soda.orders set VOIP_NUMBER='0261346181' where DOMAIN_NAME='hammerhomeconstructions.com.au'
+
+
+select id,CREATED_ON,UPDATED_ON,SOS_ACCOUNT_NUMBER,DOMAIN_NAME,WORKFLOW_STATUS,ACCOUNT_STATUS,MSISDN,SOS_REFERENCE_NUMBER,FIRST_NAME,LAST_NAME from soda.orders where SOS_ACCOUNT_NUMBER='82404386000297' 
+
+select WORKFLOW_STATUS,ACCOUNT_STATUS from soda.orders where SOS_ACCOUNT_NUMBER='94379025000133'
+
+select id,CREATED_ON,UPDATED_ON,SOS_ACCOUNT_NUMBER,DOMAIN_NAME,WORKFLOW_STATUS,ACCOUNT_STATUS,MSISDN,SOS_REFERENCE_NUMBER,FIRST_NAME,LAST_NAME from soda.ORDERS_AUD where SOS_ACCOUNT_NUMBER='82404386000297' 
+
+select * from soda.orders where SOS_REFERENCE_NUMBER='c6aca23fee3c' 
+
+select id,CREATED_ON,UPDATED_ON,SOS_ACCOUNT_NUMBER,DOMAIN_NAME,WORKFLOW_STATUS,ACCOUNT_STATUS,MSISDN,SOS_REFERENCE_NUMBER,FIRST_NAME,LAST_NAME,COMPANY_NAME from soda.orders where SOS_ACCOUNT_NUMBER='82404386000297' 
+
+
+select ID,QUOTE,SOS_ACCOUNT_NUMBER,MSISDN,CREATED_ON,UPDATED_ON,DOMAIN_NAME,FIRST_NAME,LAST_NAME from soda.orders  where SOS_ACCOUNT_NUMBER='94379025000133' and MSISDN='0404036737'
+
+select * from soda.ORDERS where SOS_ACCOUNT_NUMBER='94379025000133' and MSISDN='0402136737'
+
+
+select id,quote,CREATED_ON,UPDATED_ON,SOS_ACCOUNT_NUMBER,SOS_REFERENCE_NUMBER,DOMAIN_NAME,ADDRESS_LINE1,ADDRESS_LINE2,POSTCODE,STATE,WEB_ADDRESS_LINE1,WEB_POSTCODE,WEB_STATE,WEB_CITY  from soda.ORDERS where SOS_ACCOUNT_NUMBER='90847979000154'
+
+
+
+select id,ACCOUNT_STATUS,WORKFLOW_STATUS,DOMAIN_NAME,SOS_ACCOUNT_NUMBER,PRODUCT from soda.ORDERS where SOS_ACCOUNT_NUMBER='93570780000136'
+
+update soda.ORDERS set PRODUCT=12 where id='2008' and SOS_ACCOUNT_NUMBER='93570780000136'
+
+
+
+select * from SODA.PRODUCT
+
+select distinct(WORKFLOW_STATUS) from soda.orders
+
+select SOS_ACCOUNT_NUMBER,DOMAIN_NAME,WORKFLOW_STATUS,ACCOUNT_STATUS,id,QUOTE from soda.ORDERS where SOS_ACCOUNT_NUMBER in ('84778834000153')
+
+
+select ID,QUOTE,SOS_ACCOUNT_NUMBER,DOMAIN_NAME from soda.ORDERS where SOS_ACCOUNT_NUMBER in ('85953264000107','85695228000186','86715002000196','90734462000176','84778834000153','89061332000181','92425212000132','80358405000102','92209228000102','83068983000114','86724479000187') 
+
+select DOMAIN_NAME,id,WORKFLOW_STATUS,ACCOUNT_STATUS from soda.orders where SOS_ACCOUNT_NUMBER='9956844122552'
+
+update soda.ORDERS set WORKFLOW_STATUS='COMPLETE',ACCOUNT_STATUS='CANCELED' where SOS_ACCOUNT_NUMBER='9956844122552'
+
+
+select DOMAIN_NAME,id,WORKFLOW_STATUS,ACCOUNT_STATUS from soda.orders where SOS_ACCOUNT_NUMBER='89252511000165' and ID=1202
+
+update soda.ORDERS set WORKFLOW_STATUS='COMPLETE',ACCOUNT_STATUS='CANCELED' where ID=1202
+
+
+
+select DOMAIN_NAME,id,WORKFLOW_STATUS,ACCOUNT_STATUS from soda.orders where SOS_ACCOUNT_NUMBER='80360731000138'
+
+update soda.ORDERS set WORKFLOW_STATUS='COMPLETE',ACCOUNT_STATUS='CANCELED' where ID=1890
+
+
+
+SELECT DOMAIN_NAME FROM soda.ORDERS WHERE DOMAIN_NAME = UPPER(DOMAIN_NAME)
+
+
+select SOS_ACCOUNT_NUMBER,WORKFLOW_STATUS,ACCOUNT_STATUS from soda.ORDERS where SOS_ACCOUNT_NUMBER=82404386000297
+
+
+select * from soda.ORDERS where SOS_ACCOUNT_NUMBER in (97514540000152,87206944000139,97631920000132,91020947000131,85608163000154,86307390000164,87424202000103,84817082000144,
+86118556000246,90322965000191,92460049000194,82008013000286,82256549000152,86374104000173,89472389000156,92228302000127)
+
+select * from soda.QUOTE where REFERENCE='2cdd5574288d'
+
+select * from soda.ORDERS where SOS_ACCOUNT_NUMBER=92228302000127
+
+select SOS_ACCOUNT_NUMBER,WORKFLOW_STATUS,ACCOUNT_STATUS,ID,DOMAIN_NAME,CREATED_ON from soda.ORDERS where SOS_ACCOUNT_NUMBER=93814191000159 
+
+update soda.ORDERS set WORKFLOW_STATUS='COMPLETE',ACCOUNT_STATUS='CANCELED' where ID='2663'
+
+select * from soda.orders where MSISDN in 
+('0413677647','0430772266','0422611445','0449189271','0402119066','0401880189',
+'0422798203','0425715124','0401410202','0434668933','0421653857','0422626060',
+'0425863414','0417977529','0418877687','0481218689')
+
+select * from soda.QUOTE where MSISDN='0481218689'
+
+select distinct(WEB_ADDRESS_VISIBLE) from soda.ORDERS where WEB_ADDRESS_VISIBLE=1 
+
+select count(WEB_ADDRESS_VISIBLE) from soda.ORDERS where WEB_ADDRESS_VISIBLE=0 
+
+select SOS_REFERENCE_NUMBER from soda.ORDERS where DOMAIN_NAME='australianphotographersqueensland.com.au'
+
+select distinct(WORKFLOW_STATUS)from soda.ORDERS
+
+select SOS_ACCOUNT_NUMBER,WORKFLOW_STATUS,ACCOUNT_STATUS,ID,DOMAIN_NAME,WEB_ADDRESS_VISIBLE from soda.ORDERS where SOS_ACCOUNT_NUMBER='86589071000181' 
+
+update soda.ORDERS set WORKFLOW_STATUS='COMPLETE' where SOS_ACCOUNT_NUMBER='90847979000154'
+
+select * from soda.quote where REFERENCE='7eb14f895c94'
+
+select WORKFLOW_STATUS,ACCOUNT_STATUS,id,DOMAIN_NAME,SOS_REFERENCE_NUMBER from soda.ORDERS where SOS_ACCOUNT_NUMBER='87677792000218'
+
+select SOS_ACCOUNT_NUMBER,SOS_REFERENCE_NUMBER,MSISDN, DOMAIN_NAME,EMAIL from soda.ORDERS where SOS_ACCOUNT_NUMBER=85503102000148
+
+select ID from soda.ORDERS where SOS_ACCOUNT_NUMBER=85777843000149
+
+select ORDER_ID,BUSINESS_AREA_ID,LOCATION_NODE_ID from soda.ORDER_TSA_CAMPAIGN where ORDER_ID=827
+
+
+
+select * from soda.BUSINESS_AREA where ID in (2000064,2000065,2000929,2000182,2000182)
+
+select * from soda.LOCATION_NODE where ID in ('WA3046','5')
+
+
+
+select EMAIL,WORKFLOW_STATUS,ACCOUNT_STATUS,DOMAIN_NAME from soda.ORDERS where EMAIL='miriam kappel@springfieldinternationalstkildaeast.com.au'
+
+update soda.orders set MSISDN='1111111111' where id=1847
+
+select id,SOS_ACCOUNT_NUMBER,DOMAIN_NAME from soda.ORDERS where MSISDN='0419175226'
+
+select * from soda.ORDER_MERCHANT_ATTRIBUTES where ORDER_ID=1884
+
+select * from soda.ORDER_TSA_CAMPAIGN where ORDER_ID=1884
+
+
+select * from soda.QUOTE_BUSINESS_AREAS where QUOTE_ID=2025
+
+select * from soda.QUOTE_LOCATION_NODES where QUOTE_ID=2025
+
+
+select * from soda.QUOTE_PRODUCTS where QUOTE_ID=2025
+
+select id,SOS_ACCOUNT_NUMBER,DOMAIN_NAME,MSISDN,WORKFLOW_STATUS,ACCOUNT_STATUS from soda.ORDERS where SOS_ACCOUNT_NUMBER=90734462000176 and MSISDN='0431003481'
+
+select distinct(WORKFLOW_STATUS) from soda.ORDERS
+
+update soda.orders set WORKFLOW_STATUS='COMPLETE' where id=479
+
+
+select id,SOS_ACCOUNT_NUMBER,DOMAIN_NAME,MSISDN,WORKFLOW_STATUS,ACCOUNT_STATUS from soda.ORDERS where SOS_ACCOUNT_NUMBER=84778834000153 and MSISDN='0401345654'
+
+
+
+update soda.orders set WORKFLOW_STATUS='COMPLETE' where id=410
+
+select id,SOS_ACCOUNT_NUMBER,DOMAIN_NAME,MSISDN,WORKFLOW_STATUS,ACCOUNT_STATUS from soda.ORDERS where SOS_ACCOUNT_NUMBER=89061332000181 and MSISDN='0481242553'
+
+
+
+update soda.orders set WORKFLOW_STATUS='COMPLETE' where id=754
+
+select id,SOS_ACCOUNT_NUMBER,DOMAIN_NAME,MSISDN,WORKFLOW_STATUS,ACCOUNT_STATUS from soda.ORDERS where id in (754,410,479)
+
+select distinct(WORKFLOW_STATUS) from soda.ORDERS
+
+select  DOMAIN_NAME,WORKFLOW_STATUS,ACCOUNT_STATUS from SODA.ORDERS where SOS_ACCOUNT_NUMBER=87357509000103
+
+update soda.orders set ACCOUNT_STATUS='ACTIVE' where SOS_ACCOUNT_NUMBER=87357509000103
+
+select SOS_ACCOUNT_NUMBER from soda.quote where REFERENCE='70b23520ff49'
+
+select  ID,DOMAIN_NAME,WORKFLOW_STATUS,ACCOUNT_STATUS,CREATED_ON,UPDATED_ON from SODA.ORDERS where SOS_ACCOUNT_NUMBER=83297688000168
+
+
+update soda.orders set ACCOUNT_STATUS='ACTIVE',WORKFLOW_STATUS='PENDING' where SOS_ACCOUNT_NUMBER=83297688000168
+
+
+
+select  DOMAIN_NAME,SOS_ACCOUNT_NUMBER,VOIP_NUMBER from SODA.ORDERS where SOS_ACCOUNT_NUMBER=97562564000188
+
+update soda.ORDERS set VOIP_NUMBER='0390418738' where SOS_ACCOUNT_NUMBER=97562564000188
+
+
+
+select id,quote,SOS_ACCOUNT_NUMBER,MSISDN,VOIP_NUMBER,WORKFLOW_STATUS,ACCOUNT_STATUS,DOMAIN_NAME from soda.ORDERS where id=1683
+
+
+update soda.orders set SOS_ACCOUNT_NUMBER=97407566000204,ACCOUNT_STATUS='ACTIVE',MSISDN='0432021730' where id=1683
+
+select id,MSISDN,SOS_ACCOUNT_NUMBER from soda.QUOTE where REFERENCE='6313e017368c'
+
+update soda.quote set MSISDN='0432021730' where id=1775
+
+select id,SOS_ACCOUNT_NUMBER,DOMAIN_NAME,VOIP_NUMBER from soda.ORDERS where SOS_ACCOUNT_NUMBER=92448185000137
+
+update soda.ORDERS set DOMAIN_NAME='kahmusicaustralia.com.au' where id=199 
+
+
+select id,SOS_ACCOUNT_NUMBER,VOIP_NUMBER from soda.ORDERS where  SOS_ACCOUNT_NUMBER=87037348000146 
+
+
+update soda.ORDERS set VOIP_NUMBER='0731720966' where id=2168
+
+
+select * from soda.ORDERS where SOS_ACCOUNT_NUMBER=91800161000143 
+
+select * from soda.ORDERS where MSISDN='0439792225'
+
+select * from soda.QUOTE where SOS_ACCOUNT_NUMBER=91800161000143
+
+
+select SOS_ACCOUNT_NUMBER,domain_name,MSISDN,WORKFLOW_STATUS,ACCOUNT_STATUS,QUOTE from soda.ORDERS where SOS_ACCOUNT_NUMBER=88882871000129 and id=2896
+
+select id,REFERENCE,MSISDN,SOS_ACCOUNT_NUMBER from soda.quote where id=3166
+
+
+update soda.orders set MSISDN='0432745805' where SOS_ACCOUNT_NUMBER=88882871000129 and id=2896
+
+===========
+
+
+
+update soda.orders set DOMAIN_NAME='jadepropackersaustralia.com.au' where SOS_ACCOUNT_NUMBER=90900594000180 and MSISDN='0422019624' and DOMAIN_NAME='zzjadepropackersaustralia.com.au'
+
+
+update soda.orders set DOMAIN_NAME='asianhut.com.au' where SOS_ACCOUNT_NUMBER=89061332000181 and MSISDN='0478191061' and DOMAIN_NAME='zzasianhut.com.au'
+
+
+update soda.orders set DOMAIN_NAME='celinacooperdesign.com.au' where SOS_ACCOUNT_NUMBER=91815780000142 and MSISDN='0466918941' and DOMAIN_NAME='zzcelinacooperdesign.com.au'
+
+update soda.orders set DOMAIN_NAME='valentineprojects.com.au' where SOS_ACCOUNT_NUMBER=89783491000136 and MSISDN='0421272426' and DOMAIN_NAME='zzvalentineprojects.com.au'
+
+update soda.orders set DOMAIN_NAME='windowtintingcoffsharbour.com.au' where SOS_ACCOUNT_NUMBER=94379025000133 and MSISDN='0432051048' and DOMAIN_NAME='zzwindowtintingcoffsharbour.com.au'
+
+update soda.orders set DOMAIN_NAME='dcearthmoving.com.au' where SOS_ACCOUNT_NUMBER=84778834000153 and MSISDN='0435861634' and DOMAIN_NAME='zzdcearthmoving.com.au'
+
+
+update soda.orders set DOMAIN_NAME='handhcabinetsptyltdinmonash.com.au' where SOS_ACCOUNT_NUMBER=83280461000197 and MSISDN='0422673184' and DOMAIN_NAME='zzhandhcabinetsptyltdinmonash.com.au'
+
+
+update soda.orders set DOMAIN_NAME='jacplumbingcoffsharbour.com.au' where SOS_ACCOUNT_NUMBER=85047000000147 and MSISDN='0423728672' and DOMAIN_NAME='zzjacplumbingcoffsharbour.com.au'
+
+update soda.orders set DOMAIN_NAME='eurokitchenssydney.com.au' where SOS_ACCOUNT_NUMBER=86181362000168 and MSISDN='0421557689' and DOMAIN_NAME='zzeurokitchenssydney.com.au'
+
+update soda.orders set DOMAIN_NAME='stoneinteriorsdesign.com.au' where SOS_ACCOUNT_NUMBER=84656738000184 and MSISDN='0435794461' and DOMAIN_NAME='zzstoneinteriorsdesign.com.au'
+
+
+update soda.orders set DOMAIN_NAME='dcearthmoving.com.au' where SOS_ACCOUNT_NUMBER=84778834000153 and MSISDN='0435861634' and DOMAIN_NAME='zzdcearthmoving.com.au'
+
+
+update soda.orders set DOMAIN_NAME='cynthiacdenton.com.au' where SOS_ACCOUNT_NUMBER=89208251000159 and MSISDN='0466903153' and DOMAIN_NAME='zzcynthiacdenton.com.au'
+
+
+update soda.orders set DOMAIN_NAME='brettjonesplumbing.com.au' where SOS_ACCOUNT_NUMBER=82236244000119 and MSISDN='0478042382' and DOMAIN_NAME='zzbrettjonesplumbing.com.au'
+
+update soda.orders set DOMAIN_NAME='constructcom.com.au' where SOS_ACCOUNT_NUMBER=90734462000176 and MSISDN='0411950410' and DOMAIN_NAME='zzconstructcom.com.au'
+
+update soda.orders set DOMAIN_NAME='simonscarpentrywhittleseawallan.com.au' where SOS_ACCOUNT_NUMBER=85799543000136 and MSISDN='0478660244' and DOMAIN_NAME='zzsimonscarpentrywhittleseawallan.com.au'
+
+
+
+update soda.orders set DOMAIN_NAME='suncarpentry.com.au' where SOS_ACCOUNT_NUMBER=83091198000168 and MSISDN='0431242738' and DOMAIN_NAME='zzsuncarpentry.com.au'
+
+
+update soda.orders set DOMAIN_NAME='rickllyodplumbing.com.au' where SOS_ACCOUNT_NUMBER=80378460000170 and MSISDN='0411586561' and DOMAIN_NAME='zzrickllyodplumbing.com.au'
+
+
+update soda.orders set DOMAIN_NAME='hairaction.com.au' where SOS_ACCOUNT_NUMBER=94793359000161 and MSISDN='0423062563' and DOMAIN_NAME='zzhairaction.com.au'
+
+update soda.orders set DOMAIN_NAME='mariettefashioncreations.com.au' where SOS_ACCOUNT_NUMBER=89431767000194 and MSISDN='0434252650' and DOMAIN_NAME='zzmariettefashioncreations.com.au'
+
+update soda.orders set DOMAIN_NAME='treeremovalulladulla.com.au' where SOS_ACCOUNT_NUMBER=85547777000165 and MSISDN='0435843561' and DOMAIN_NAME='zztreeremovalulladulla.com.au'
+
+update soda.orders set DOMAIN_NAME='keselectrical.com.au' where SOS_ACCOUNT_NUMBER=88226651000140 and MSISDN='0413098795' and DOMAIN_NAME='zzkeselectrical.com.au'
+
+
+update soda.orders set DOMAIN_NAME='budgetplumbingbrisbane.com.au' where SOS_ACCOUNT_NUMBER=93641406000184 and MSISDN='0434517182' and DOMAIN_NAME='zzbudgetplumbingbrisbane.com.au'
+----------------------------------------
+
+
+
+select * from soda.QUOTE_LOCATION_NODES where QUOTE_ID=2403
+
+
+
+
+select * from soda.BUSINESS_AREA where ID=2000024
+
+select * from soda.BUSINESS_CATEGORY where ID=1000002
+
+select * from soda.LOCATION_NODE where ID in ('21502','2GMEL')
+
+select * from soda.ORDER_TSA_CAMPAIGN where id=39999
+
+
+select * from soda.ORDER_TSA_CAMPAIGN where ORDER_ID=2144
+
+select count(*) from soda.ORDER_TSA_CAMPAIGN where LOCATION_NODE_ID='2GMEL'
+
+select count(*) from soda.ORDER_TSA_CAMPAIGN
+
+====================
+Data fIx 
+
+===================
+
+
+select * from soda.ORDER_TSA_CAMPAIGN where ORDER_ID=2144
+
+delete from soda.ORDER_TSA_CAMPAIGN where ORDER_ID=2144
+
+select * from soda.QUOTE_LOCATION_NODES where QUOTE_ID=2403
+
+delete from soda.QUOTE_LOCATION_NODES where QUOTE_ID=2403
+
+
+update soda.orders set WORKFLOW_STATUS='COMPLETE' where SOS_ACCOUNT_NUMBER=87357509000103 and MSISDN='0435783759'
+
+
+
+
+select id,quote,DOMAIN_NAME,WORKFLOW_STATUS,ACCOUNT_STATUS,SOS_ACCOUNT_NUMBER from soda.orders where SOS_ACCOUNT_NUMBER=87357509000103 and MSISDN='0435783759'
+
+select * from soda.QUOTE_BUSINESS_AREAS where QUOTE_ID=2403
+
+delete from soda.QUOTE_BUSINESS_AREAS where QUOTE_ID=2403
+
+insert into soda.QUOTE_BUSINESS_AREAS(QUOTE_ID,BUSINESS_AREA_ID,BUSINESS_AREAS_ORDER) values(2403,'2000024',0)
+
+insert into soda.QUOTE_LOCATION_NODES(quote_id,location_node_id) values(2403,'21502')
+
+Insert into soda.QUOTE_LOCATION_NODES(quote_id,location_node_id) values(2403,'2GMEL')

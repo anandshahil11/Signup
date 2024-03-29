@@ -1,0 +1,37 @@
+create table delivery_status (
+sendsap_exist varchar(10),
+sendsap_status varchar(1000),
+deldue_status varchar(1000),
+goods_status varchar(1000),
+custcall_status varchar(1000),
+opom_submit_dt varchar(100),
+message varchar(1000));
+
+
+insert into delivery_status values (NULL,NULL,NULL,NULL,NULL,'2011-01-01 01:01:01','Your order has been submitted');
+insert into delivery_status values (NULL,NULL,NULL,NULL,NULL,'0000-00-00 00:00:00','No Delivery Required');
+insert into delivery_status values ('1',NULL,NULL,NULL,NULL,'2011-01-01 01:01:01','Your order has been submitted');
+insert into delivery_status values ('1','COM',NULL,NULL,NULL,'0000-00-00 00:00:00','Your order has been accepted by the warehouse');
+insert into delivery_status values ('1','COM','COM',NULL,NULL,'0000-00-00 00:00:00','Your order has been packed by the warehouse');
+insert into delivery_status values ('1','COM','COM','COM',NULL,'0000-00-00 00:00:00','Your order is with Australia Post');
+insert into delivery_status values ('1','COM','COM','COM','COM','0000-00-00 00:00:00','Your order is delivered');
+
+
+update delivery_status set opom_submit_dt='2011-01-01 01:01:01' where sendsap_exist='1' and sendsap_status=NULL; 
+
+
+mysql> select * from delivery_status;
++---------------+----------------+---------------+-----------------+---------------------+-----------------------------------------------+
+| sendsap_exist | sendsap_status | deldue_status | custcall_status | opom_submit_dt      | message                                       |
++---------------+----------------+---------------+-----------------+---------------------+-----------------------------------------------+
+| NULL          | NULL           | NULL          | NULL            | 2011-01-01 01:01:01 | Your order has been submitted                 |
+| NULL          | NULL           | NULL          | NULL            | 0000-00-00 00:00:00 | No Delivery Required                          |
+| 1             | COM            | NULL          | NULL            | 0000-00-00 00:00:00 | Your order has been accepted by the warehouse |
+| 1             | COM            | COM           | NULL            | 0000-00-00 00:00:00 | Your order has been packed by the warehouse   |
+| 1             | COM            | COM           | COM             | 0000-00-00 00:00:00 | Your order is with Australia Post             |
++---------------+----------------+---------------+-----------------+---------------------+-----------------------------------------------+
+5 rows in set (0.00 sec)
+
+
+select delivery_status.message from delivery_status where delivery_status.opom_submit_dt='0000-00-00 00:00:00' and delivery_status.sendsap_exist is null
+

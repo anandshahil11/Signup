@@ -1,0 +1,166 @@
+mv OO_20120122_002001_OPACCT_002001_001_01.DAT ../in
+ touch -m -t 201201220344 OO_20120122_002001_OPCONT_002001_001_01.DAT
+view OO_20120122_002001_OPCONT_002001_001_01.DAT
+cp OO_20120122_002001_OPCONT_002001_001_01.DAT OO_20120122_002001_OPCONT_002001_001_01.DAT.backup
+
+
+
+wc OPTUS*H.*
+ find . -maxdepth 1 -name '*H.*' -exec perl -i -p -e 's/\n/\r\n/' {} \;
+find . -maxdepth 1 -name '*H.*'
+
+grep OPTUS05H.057 /apps/tomcat/logs/rewards-engine.log.2
+grep -l OPTUS05H.057 /apps/tomcat/logs/rewards-engine.log*
+od -c ./OPTUS06H.048 | head -5
+
+ls -ltr access_2012-06-0[2-3]-*
+
+[itweb@iwpprdpxyl008 access]$ gzip -f  access_2012-06-0[5]-*
+[itweb@iwpprdpxyl008 access]$ df -k .
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/mapper/sysvg-apps_lv
+                      41284928  28490004  10697772  73% /apps
+[itweb@iwpprdpxyl008 access]$ pwd
+/apps/www/logs/apache/secure/access
+[itweb@iwpprdpxyl008 access]$
+
+
+
+-------------------
+
+
+[itweb@ewpprdpxyl008-back access]$ gzip -f access_2012-06-05-*
+[itweb@ewpprdpxyl008-back access]$ df -k .
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/mapper/appsvg-apps_lv
+                      30963708  17176476  12214368  59% /apps
+[itweb@ewpprdpxyl008-back access]$ df -k .
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/mapper/appsvg-apps_lv
+                      30963708  17180860  12209984  59% /apps
+[itweb@ewpprdpxyl008-back access]$ df -kh
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/sysvg-root_lv
+                      3.9G  2.4G  1.4G  65% /
+/dev/mapper/sysvg-var_lv
+                      2.0G  552M  1.3G  30% /var
+/dev/mapper/sysvg-tmp_lv
+                      2.0G  146M  1.7G   8% /tmp
+/dev/mapper/sysvg-home_lv
+                      3.9G  614M  3.1G  17% /home
+/dev/mapper/appsvg-apps_lv
+                       30G   17G   12G  59% /apps
+/dev/sda1             251M   32M  207M  14% /boot
+tmpfs                 3.9G     0  3.9G   0% /dev/shm
+[itweb@ewpprdpxyl008-back access]$ pwd
+/apps/www/logs/apache/secure/access
+[itweb@ewpprdpxyl008-back access]$
+
+
+
+-------------------
+
+
+
+
+
+
+find . -name '*.*_backup' -exec mv {} backup/{} \;
+perl -i -p -e 's/\n/\r\n/' OPTUS06H.043
+
+
+zgrep -h 123456789 *A200*
+
+find . -name 'I20120402_0****.dat' -exec mv {} backup/{} \; 
+
+find . -name 'I20120402_01008.dat' -exec mv {} ../../in \;
+
+ls I20120531_00[265-674]*
+
+ls I20120531_00[265-674]*.dat
+
+
+find . -name 'I20120531_00[265-674]*' -exec mv {} /../in \;
+
+
+
+
+
+
+grep -l 85530138000194 /apps/tomcat/logs/rewards-engine.log*
+
+grep -l Anand.Sharma 
+
+
+disk space
+------------
+[tomcat@qffprdappl002 error]$ df -k .
+Filesystem           1K-blocks      Used Available Use% Mounted on
+/dev/mapper/qffvg-qff_lv
+                     309637120   7533264 286375216   3% /apps/qff
+[tomcat@qffprdappl002 error]$
+
+
+
+
+
+
+
+
+
+
+
+Gzip 
+---------
+gzip -f rewards-engine.log.[1-10]
+
+
+To see history
+------------
+
+[tomcat@qffprdappl002 /]$ history
+
+
+[tomcat@qffprdappl002 /]$ top
+top - 15:34:50 up 195 days,  3:23,  2 users,  load average: 0.00, 0.00, 0.00
+Tasks: 435 total,   1 running, 434 sleeping,   0 stopped,   0 zombie
+Cpu(s):  0.0%us,  0.1%sy,  0.0%ni, 99.9%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Mem:  36889796k total, 21841360k used, 15048436k free,  1004096k buffers
+Swap:  4192956k total,        0k used,  4192956k free, 17650940k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+ 7620 root       0 -20 37472 8324 2200 S  1.7  0.0   3315:22 scopeux
+10328 tomcat    15   0 13024 1388  828 R  0.3  0.0   0:00.04 top
+    1 root      15   0 10368  628  536 S  0.0  0.0   0:03.19 init
+    2 root      RT  -5     0    0    0 S  0.0  0.0   0:13.65 migration/0
+    3 root      34  19     0    0    0 S  0.0  0.0   0:00.33 ksoftirqd/0
+    4 root      RT  -5     0    0    0 S  0.0  0.0   0:00.00 watchdog/0
+    5 root      RT  -5     0    0    0 S  0.0  0.0   0:01.40 migration/1
+    6 root      34  19     0    0    0 S  0.0  0.0   0:00.93 ksoftirqd/1
+    7 root      RT  -5     0    0    0 S  0.0  0.0   0:00.00 watchdog/1
+    8 root      RT  -5     0    0    0 S  0.0  0.0   0:00.92 migration/2
+    9 root      34  19     0    0    0 S  0.0  0.0   0:00.73 ksoftirqd/2
+   10 root      RT  -5     0    0    0 S  0.0  0.0   0:00.00 watchdog/2
+   11 root      RT  -5     0    0    0 S  0.0  0.0   0:00.91 migration/3
+   12 root      34  19     0    0    0 S  0.0  0.0   0:01.36 ksoftirqd/3
+   13 root      RT  -5     0    0    0 S  0.0  0.0   0:00.00 watchdog/3
+   14 root      RT  -5     0    0    0 S  0.0  0.0   0:00.85 migration/4
+   15 root      34  19     0    0    0 S  0.0  0.0   0:01.53 ksoftirqd/4
+   16 root      RT  -5     0    0    0 S  0.0  0.0   0:00.00 watchdog/4
+   17 root      RT  -5     0    0    0 S  0.0  0.0   0:01.32 migration/5
+   18 root      34  19     0    0    0 S  0.0  0.0   0:03.69 ksoftirqd/5
+   19 root      RT  -5     0    0    0 S  0.0  0.0   0:00.00 watchdog/5
+   20 root      RT  -5     0    0    0 S  0.0  0.0   0:15.28 migration/6
+   21 root      34  19     0    0    0 S  0.0  0.0   0:00.08 ksoftirqd/6
+   22 root      RT  -5     0    0    0 S  0.0  0.0   0:00.00 watchdog/6
+   23 root      RT  -5     0    0    0 S  0.0  0.0   0:01.31 migration/7
+   24 root      34  19     0    0    0 S  0.0  0.0   0:00.07 ksoftirqd/7
+   25 root      RT  -5     0    0    0 S  0.0  0.0   0:00.00 watchdog/7
+   26 root      RT  -5     0    0    0 S  0.0  0.0   0:00.82 migration/8
+   27 root      34  19     0    0    0 S  0.0  0.0   0:00.05 ksoftirqd/8
+   28 root      RT  -5     0    0    0 S  0.0  0.0   0:00.00 watchdog/8
+   29 root      RT  -5     0    0    0 S  0.0  0.0   0:00.90 migration/9
+   30 root      34  19     0    0    0 S  0.0  0.0   0:00.11 ksoftirqd/9
+   31 root      RT  -5     0    0    0 S  0.0  0.0   0:00.00 watchdog/9
+   32 root      RT  -5     0    0    0 S  0.0  0.0   0:00.86 migration/10
+   33 root      34  19     0    0    0 S  0.0  0.0   0:00.17 ksoftirqd/10

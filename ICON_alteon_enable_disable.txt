@@ -1,0 +1,29 @@
+icon is an internal application used by csrs
+
+credential:ews-user/d0ther1ghtThing
+
+>> AO2KYGIDB01 - Main) /i/slb/virt 7
+   7: IP4 10.8.50.7,       00:00:5e:00:01:07, dname icon.optus.com.au
+    virtual ports:
+    http: rport http, group 9, NEW-ICON-HTTP-HTTPS, backup none, secbkp none, co                                                                             ntent /healthcheck.txt, pbind cookie, rtspslb none, dbind
+      cookie name: ICONHTTP
+      cookie persistence mode: insert
+    inserted cookie expires with the session
+        real servers:
+          20: ICNPRDAPPW010, backup none, 24 ms, group ena, up
+          21: ICNPRDAPPW011, backup none, 44 ms, group ena, DISABLED
+          22: ICNPRDAPPW012, backup none, 24 ms, group ena, up
+          23: ICNPRDAPPW013, backup none, 45 ms, group ena, up
+          24: ICNPRDAPPW014, backup none, 26 ms, group ena, up
+          25: ICNPRDAPPW015, backup none, 46 ms, group ena, up
+          26: ICNPRDAPPW016, backup none, 26 ms, group ena, up
+          27: ICNPRDAPPW017, backup none, 14 ms, group ena, up
+          28: ICNPRDAPPW018, backup none, 26 ms, group ena, up
+          29: ICNPRDAPPW019, backup none, 45 ms, group ena, up
+    https: rport https, group 9, NEW-ICON-HTTP-HTTPS, backup none, secbkp none,                                                                              pbind sslid, rtspslb none, dbind
+        real servers:
+          20: ICNPRDAPPW010, backup none, 23 ms, group ena, up
+          21: ICNPRDAPPW011, backup none, 43 ms, group ena, DISABLED
+          22: ICNPRDAPPW012, backup none, 24 ms, group ena, up
+          23: ICNPRDAPPW013, backup none, 45 ms, group ena, up
+Press q to quit, any other key to continue

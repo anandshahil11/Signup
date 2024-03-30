@@ -1,0 +1,124 @@
+-bash-3.00$ pwd
+/home/ewssupport
+-bash-3.00$ cd /var/log/
+-bash-3.00$ pwd
+/var/log
+-bash-3.00$ ls -ltr
+total 46236
+-rw-r--r--   1 root     sys            0 Nov 10  2006 syslog
+-rw-------   1 root     sys            0 Nov 10  2006 authlog
+drwxr-xr-x   2 root     sys          512 Feb 24  2007 pool
+drwxr-xr-x   2 root     sys          512 Feb 28  2007 swupas
+-rw-r--r--   1 root     other        546 Feb 28  2007 sysidconfig.log
+drwxr-xr-x   3 root     sys          512 May 21  2007 webconsole
+-rw-r--r--   1 root     root         210 Sep  9  2008 cly_hosts.log
+-rw-r--r--   1 root     root          83 Jul 12  2010 snmpd.log
+-rw-rw-r--   1 root     sys      23634430 Feb  7 15:58 syslog_info
+-bash-3.00$
+
+
+-bash-3.00$ pwd
+/var/log
+-bash-3.00$ grep -i '172.17.133.21' syslog_info
+Feb  7  2:16:50 VO2KYGB03.optus.com.au VO2KYGB03 ALERT   AlteonOS <slb>: cannot contact real service 172.17.133.21:80
+Feb  7  2:16:53 VO2KYGB04.optus.com.au VO2KYGB04 ALERT   AlteonOS <slb>: cannot contact real service 172.17.133.21:80
+Feb  7  2:17:13 VO2KYGB04.optus.com.au VO2KYGB04 NOTICE  AlteonOS <slb>: real service 172.17.133.21:80 operational
+Feb  7  2:17:15 VO2KYGB03.optus.com.au VO2KYGB03 NOTICE  AlteonOS <slb>: real service 172.17.133.21:80 operational
+Feb  7 10:13:10 VO2KYGB03.optus.com.au VO2KYGB03 ALERT   AlteonOS <slb>: cannot contact real service 172.17.133.21:80
+Feb  7 10:13:14 VO2KYGB04.optus.com.au VO2KYGB04 ALERT   AlteonOS <slb>: cannot contact real service 172.17.133.21:80
+Feb  7 10:13:20 VO2KYGB03.optus.com.au VO2KYGB03 NOTICE  AlteonOS <slb>: real service 172.17.133.21:80 operational
+Feb  7 10:13:24 VO2KYGB04.optus.com.au VO2KYGB04 NOTICE  AlteonOS <slb>: real service 172.17.133.21:80 operational
+-bash-3.00$
+
+===================================
+
+>> VO2KYGB03 - Main) /stats/slb/virt 40
+------------------------------------------------------------------
+Virtual server 40 stats:
+                                  Current      Total  Highest
+Real IP address                  Sessions   Sessions Sessions           Octets
+---- --------------------------- -------- ---------- --------  ---------------
+  41 sydwpsvs01.virginmobile.com.au
+                                        2       6393        7      50485956096
+  42 sydwpsvs02.virginmobile.com.au
+                                        2       6395        7      53020676770
+---- --------------------------- -------- ---------- --------  ---------------
+     172.17.129.31                      4      12788       14     103506632866
+
+>> VO2KYGB03 - Server Load Balancing Statistics)
+
+
+>> VO2KYGB03 - Server Load Balancing Statistics) /stats/slb/real 41
+------------------------------------------------------------------
+Real server 41 stats:
+Real server failures:                 0
+Last time real server up:
+Last time real server failed:
+Health check attempts:          1971662
+Health check failures:                0
+Health check responses:         1971654
+Last valid response time:          1260 usecs
+Average valid response time:       1434 usecs
+Longest valid response time:      54949 usecs
+Health check type:           tcp
+Last SNMP HC response:
+Buddy Health check failures:          0
+Current sessions:                     2
+Total sessions:                    6394
+Highest sessions:                     7
+Octets:                     50486538115
+
+>> VO2KYGB03 - Server Load Balancing Statistics)
+
+>> VO2KYGB03 - Server Load Balancing Statistics) /stats/slb/real 42
+------------------------------------------------------------------
+Real server 42 stats:
+Real server failures:                 0
+Last time real server up:
+Last time real server failed:
+Health check attempts:          1971718
+Health check failures:                0
+Health check responses:         1971698
+Last valid response time:          1031 usecs
+Average valid response time:       3997 usecs
+Longest valid response time:     383545 usecs
+Health check type:           tcp
+Last SNMP HC response:
+Buddy Health check failures:          0
+Current sessions:                     4
+Total sessions:                    6397
+Highest sessions:                     7
+Octets:                     53023784988
+
+>> VO2KYGB03 - Server Load Balancing Statistics)
+
+
+>> VO2KYGB03 - Server Load Balancing Statistics) /stats/slb/group  40
+------------------------------------------------------------------
+Real server group 40 stats:
+                                  Current      Total  Highest
+Real IP address                  Sessions   Sessions Sessions           Octets
+---- --------------------------- -------- ---------- --------  ---------------
+  41 sydwpsvs01.virginmobile.com.au
+                                        2       6395        7      50497020079
+  42 sydwpsvs02.virginmobile.com.au
+                                        4       6397        7      53028147316
+---- --------------------------- -------- ---------- --------  ---------------
+     Web_Services_Severs_HTTP           6      12792       14     103525167395
+
+>> VO2KYGB03 - Server Load Balancing Statistics)
+
+>> VO2KYGB03 - Server Load Balancing Statistics) /i/slb/virt 40
+  40: IP4 172.17.129.31,   00:00:5e:00:01:28, vname SYDWPSVS
+    virtual ports:
+    http: rport http, group 40, Web_Services_Severs_HTTP, backup none, secbkp none, rtspslb none, epip
+        real servers:
+          41: sydwpsvs01.virginmobile.com.au, backup none, 1 ms, group ena, up
+          42: sydwpsvs02.virginmobile.com.au, backup none, 6 ms, group ena, up
+    https: rport https, group 41, Web_Services_Severs_HTTPS, backup none, secbkp none, rtspslb none, dbind
+        real servers:
+          41: sydwpsvs01.virginmobile.com.au, backup none, 0 ms, group ena, up
+          42: sydwpsvs02.virginmobile.com.au, backup none, 6 ms, group ena, up
+
+>> VO2KYGB03 - Server Load Balancing Information)
+

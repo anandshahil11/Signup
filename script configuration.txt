@@ -1,0 +1,103 @@
+To configuration script 
+================================================
+
+/c/slb/advhc/script 9
+open "7101,tcp"
+send "GET /inbound/Health.do HTTP/1.0\\r\\n\\r\\n"
+expect "HTTP/1.1 200"
+close
+
+Above command returns true /false
+
+we will confugure or mention script under group
+
+/c/slb/group 90
+ipver v4
+metric roundrobin
+health script9 //name of script config
+add 91
+add 92
+
+
+/c/slb/advhc/script 9
+open "7101,tcp"        /* port 7101 */
+send "GET /inbound/Health.do HTTP/1.0\\r\\n\\r\\n"
+expect "HTTP/1.1 200"
+close
+open "8080,tcp"    /* port 8080 */
+send "GET /someotherfile.do HTTP/1.0\\r\\n\\r\\n"
+expect "HTTP/1.1 200"
+close
+
+/c/slb/real 12
+ena
+ipver v4
+rip 10.10.43.44
+inter 3
+name "acsprdinfw003"
+addport 1645
+
+
+/c/slb/virt 10/service 1645
+group 38
+epip ena
+
+/c/slb/real 151
+ena
+ipver v4
+rip 10.10.195.7
+inter 10
+name "AMRPPTAPPL009-web1"
+addport 10011
+
+/c/slb/real 152
+ena
+ipver v4
+rip 10.10.195.8
+inter 10
+name "AMRPPTAPPL009-web2"
+addport 10021
+
+/c/slb/real 153
+ena
+ipver v4
+rip 10.10.195.9
+inter 10
+name "AMRPPTAPPL010-web1"
+addport 10011
+
+/c/slb/real 154
+ena
+ipver v4
+rip 10.10.195.10
+inter 10
+name "AMRPPTAPPL010-web2"
+addport 10021
+
+
+>> A22RRGIDB01 - Server Load Balancing Information) /i/slb/virt 150
+150: IP4 10.10.50.26, 00:00:5e:00:01:96, dname amrpptappl-vip.optus.com.au
+virtual ports:
+10011: rport 0, group 150, AMRPPT_MULTI, backup none, secbkp none, rtspslb none, dbind
+real servers:
+151: AMRPPTAPPL009-web1:10011, backupnone, 22 ms, group ena, up
+152: AMRPPTAPPL009-web2:10021, backupnone, 9 ms, group ena, up
+153: AMRPPTAPPL010-web1:10011, backupnone, 40 ms, group ena, up
+154: AMRPPTAPPL010-web2:10021, backupnone, 8 ms, group ena, up
+
+
+/c/slb/virt 150
+ena
+ipver v4
+vip 10.10.50.26
+dname "amrpptappl-vip.optus.com.au"
+
+/c/slb/virt 150/service 10011
+group 150
+rport 0
+dbind ena
+
+
+========================================================
+
+

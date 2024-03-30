@@ -1,0 +1,103 @@
+/c/slb/real 371
+ena
+ipver v4
+rip 203.13.127.233
+inter 5
+name "ewpprdpxyl001-cmp"
+
+/c/slb/real 372
+ena
+ipver v4
+rip 203.13.127.234
+inter 5
+name "ewpprdpxyl002-cmp"
+
+/c/slb/real 373
+ena
+ipver v4
+rip 203.13.127.235
+inter 5
+name "ewpprdpxyl003-cmp"
+
+/c/slb/real 374
+ena
+ipver v4
+rip 203.13.127.236
+inter 5
+name "ewpprdpxyl009-cmp"
+
+/c/slb/real 375
+ena
+ipver v4
+rip 203.13.127.237
+inter 5
+name "ewpprdpxyl010-cmp"
+
+/c/slb/real 376
+ena
+ipver v4
+rip 203.13.127.238
+inter 5
+name "ewpprdpxyl011-cmp"
+
+/c/slb/real 377
+ena
+ipver v4
+rip 203.13.127.239
+inter 5
+name "ewpprdpxyl012-cmp"
+
+/c/slb/group 370
+ipver v4
+metric roundrobin
+health http
+content "//PRDPXYEXTCMP/LBhealth.txt"
+add 371
+add 372
+add 373
+add 374
+add 375
+add 376
+add 377
+name "CMP_HTTP"
+
+/c/slb/group 371
+ipver v4
+metric roundrobin
+health sslh
+add 371
+add 372
+add 373
+add 374
+add 375
+add 376
+add 377
+name "CMP_HTTPS"
+
+/c/slb/virt 370
+ena
+ipver v4
+vip 203.13.127.240
+vname "ewpprdpxy-cmp.optus.com.au"
+dname "cmp.optus.com.au"
+
+/c/slb/virt 370/service http
+group 370
+dbind ena
+
+/c/slb/virt 370/service https
+group 371
+dbind ena
+
+/c/slb/virt 370/service 80/pbind cookie insert "LBPRDVMMADM" "path=/"
+/c/slb/virt 370/service 443/pbind sslid
+
+/c/l3/vrrp/vr 370
+ena
+ipver v4
+vrid 370
+if 13
+addr 203.13.127.240
+share dis
+track
+	ports e

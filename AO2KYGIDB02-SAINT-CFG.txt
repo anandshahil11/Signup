@@ -1,0 +1,73 @@
+/c/slb/real 172
+ena
+ipver v4
+rip 10.8.194.245
+tmout 4
+name "saiprdappl002"
+
+/c/slb/real 173
+ena
+ipver v4
+rip 10.8.194.246
+tmout 4
+name "saiprdappl003"
+
+/c/slb/real 174
+ena
+ipver v4
+rip 10.8.194.247
+tmout 4
+name "saiprdappl004"
+
+/c/slb/real 175
+ena
+ipver v4
+rip 10.8.194.248
+tmout 4
+name "saiprdappl005"
+
+/c/slb/group 170
+ipver v4
+metric roundrobin
+health http
+content "/alteon/test.txt"
+add 171
+add 172
+add 173
+add 174
+name "SAINT_HTTP"
+
+/c/slb/group 171
+ipver v4
+metric roundrobin
+health sslh
+add 171
+add 172
+add 173
+add 174
+name "SAINT_HTTPS"
+
+/c/slb/virt 170
+ena
+ipver v4
+vip 10.8.50.23
+dname "saiprdapp.optus.com.au"
+
+/c/slb/virt 170/service http
+group 170
+dbind ena
+
+/c/slb/virt 171/service https
+group 171
+dbind ena
+
+/c/l3/vrrp/vr 170
+ena
+ipver v4
+vrid 170
+addr 10.8.50.23
+prio 97
+if 11
+share dis
+track
+	ports e

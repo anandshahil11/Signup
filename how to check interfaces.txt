@@ -1,0 +1,161 @@
+Using username "ews".
+Last login: Thu Feb 20 15:32:14 2014 from cd129723.optus.com.au
+(/home/ews)-> telnet IO2KYGZDB01
+Trying 10.120.44.47...
+Connected to IO2KYGZDB01.optus.com.au (10.120.44.47).
+Escape character is '^]'.
+
+*************** This service is for authorised clients only ****************
+****************************************************************************
+* WARNING:      It is a criminal offence to:                               *
+*               i. Obtain access to data without authority                 *
+*                       (Penalty 2 years imprisonment)                     *
+*               ii Damage, delete, alter or insert data without authority  *
+*                       (Penalty 10 years imprisonment)                    *
+****************************************************************************
+
+
+Enter login username: ews-user
+Enter login password:
+System Information at 16:18:21 Thu Feb 20, 2014 (DST)
+Time zone: Australia/NSW Most (GMT offset +10:00)
+
+
+Memory profile is Default
+
+Alteon Application Switch 4408
+
+Switch is up 203 days, 19 hours, 19 minutes and 26 seconds.
+Last boot: 19:01:21 Wed Jul 31, 2013 (power cycle)
+Last apply: 21:37:38 Wed Aug  7, 2013
+Last save: 22:10:35 Wed Aug  7, 2013
+
+MAC Address                :    00:03:b2:71:27:c0
+IP (If  12) Address        :    10.120.44.49
+Hardware MainBoard No|Rev  :    NSA5110-E2SFP | A.04
+Hardware DB No             :    Not Available
+Hardware Serial Number     :    31000764
+
+Note - When the measured temperature inside the switch EXCEEDs
+       the anomaly threshold at 74 degree Celsius or the critical
+       temperature at 81 degree Celsius different syslog messages
+       will be generated.
+
+Software Version 26.3.3.20 (FLASH image2), active configuration.
+
+CHOC DMZ External Load Balancer 1
+
+------------------------------------------------------------
+[Main Menu]
+     info     - Information Menu
+     stats    - Statistics Menu
+     oper     - Operations Command Menu
+     exit     - Exit  [global command, always available]
+
+>> IO2KYGZDB01 - Main) /i/l3/ip
+IP information:
+  AS number 0
+
+Interface information:
+ 12: IP4 10.120.44.49    255.255.255.192 10.120.44.63   , vlan 804, up
+ 13: IP4 203.13.127.201  255.255.255.0   203.13.127.255 , vlan 953, up
+ 14: IP4 203.13.128.25   255.255.255.224 203.13.128.31  , vlan 978, up
+
+ [[ ANAND COMMENT:---------------------------------------------------------------------------------- 
+ ---------------------------------------------------------------------------------------------------
+ 1.there are 2 subnets 10.120.44.* , 203.13.127.* and 203.13.128.* 
+ 
+ 255.255.255.192 means there are 254-192 = servers are available 
+ 
+ vlan 804 means real ip should be in same subnet (In DMZ, real ip addresses should be in same subnet )
+ 
+ FOR A02 (admin server),
+ 
+ >> AO2KYGIDB01 - Layer 3) /i/l3/ip
+IP information:
+  AS number 0
+
+Interface information:
+ 11: IP4 10.8.50.201     255.255.255.0   10.8.50.255    , vlan 169, up
+ 12: IP4 10.8.214.201    255.255.255.0   10.8.214.255   , vlan 169, up
+
+Default gateway information: metric strict
+  1: 10.8.50.254,                                   vlan any,  up
+  2: 10.8.214.254,                                  vlan any,  up
+
+  
+>> AO2KYGIDB01 - Layer 3) /i/l2/vlan
+VLAN                Name               Status Jumbo BWC  Learn Ports
+----  -------------------------------- ------ ----- ---- ----- ----------------
+1     Default VLAN                       ena    n  1024   ena  1-9
+169   10.8.50.0/24-IP-Load-Balancer      ena    n  1024   ena  10
+
+>> AO2KYGIDB01 - Layer 2)
+
+  
+---------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+  ]]
+ 
+ 
+ 
+ 
+ 
+Default gateway information: metric strict
+ 12: 10.120.44.62,                                  vlan  804, up
+ 13: 203.13.127.254,                                vlan  953, up
+ 14: 203.13.128.30,                                 vlan  978, up
+
+Current IP forwarding settings: OFF, dirbr disabled, noicmprd disabled, rtcache                                                                              enabled
+
+Current local networks:
+None
+-----------------------------------------------
+Current IPv6 local networks:
+
+Current network filter settings:
+  none
+
+Current route map settings:
+
+>> IO2KYGZDB01 - Layer 3) /i/l2/vlan
+VLAN                Name               Status Jumbo BWC  Learn Ports
+----  -------------------------------- ------ ----- ---- ----- ----------------
+1     Default VLAN                       ena    n  1024   ena  2-5 7 8
+804   10.120.44.0/26-internet-net-mgm    ena    n  1024   ena  1 7
+953   203.13.127.0/24-wi-ext-web-fron    ena    n  1024   ena  1 7 8
+978   203.13.128.0/27-SVC#2-IZ-EF        ena    n  1024   ena  1 7 8
+
+>> IO2KYGZDB01 - Layer 2)
+
+ [[ ANAND COMMENT:---------------------------------------------------------------------------------- 
+ ---------------------------------------------------------------------------------------------------
+ 10.120.44.0/26 means real  servers should be in 10.120.44.* subnet
+ 
+ 
+Example:-
+ 
+ 
+192.168.0.0/23
+IP Address           : 192.168.0.0
+Subnet Mask          : /23 (or 255.255.254.0)
+IP address range     : 192.168.0.0 - 192.168.1.255
+Network ID           : 192.168.0.0
+Network Broadcast    : 192.168.1.255
+Host IP address range: 192.168.0.1 - 192.168.1.254
+ Determine IP Address Number
+
+In /24 or smaller networks (within Class C network),
+/32 = 255.255.255.255 = 1   IP address
+/31 = 255.255.255.254 = 2   IP addresses
+/30 = 255.255.255.252 = 4   IP addresses
+/29 = 255.255.255.248 = 8   IP addresses
+/28 = 255.255.255.240 = 16  IP addresses
+/27 = 255.255.255.224 = 32  IP addresses
+/26 = 255.255.255.192 = 64  IP addresses
+/25 = 255.255.255.128 = 128 IP addresses
+/24 = 255.255.255.0   = 256 IP addresses = single Class C network
+ 
+ --------------------------------------------------------------------------------------- 
+ ---------------------------------------------------------------------------------------------------
+ ]]

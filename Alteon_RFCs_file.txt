@@ -1,0 +1,73 @@
+RFC
+---------------------------
+
+C00077589,-implementation denied
+
+LB configuration for Map Blaster 2 Project and OPS DR Servers
+
+LB configuration for Map Blaster 2 Project and OPS DR Servers
+
+-------------------------------------------------------------
+
+Work Request C00076588 - Prompt
+
+Please create record for obsprdweb.optus.com.au and obsdrpweb.optus.com.au
+
+Please create IP address for obsprdweb.optus.com.au under the subnet 10.8.50.* and obsdrpweb.optus.com.au under the subnet 10.10.50.*. These IPs are to be used as VIPs on AO2KYGIDB01&2 and A22RRGIDB01&2
+
+
+C00077331
+
+LB configuration for OSP servers
+
+LB configuration for OSP servers on AO2KYGIDB01&2
+
+
+
+C00077590 - implementaion denied
+
+LB configuration Changes for health check in OPS Prod servers
+LB configuration Changes for health check in OPS Prod servers
+
+C00077674 - Approved for implementation 
+
+
+LB configuration Changes for health check in OPS Prod servers
+LB configuration Changes for health check in OPS Prod servers
+
+
+-------------------------------------------------------------
+work request C00077643
+
+Alias for sptdevwebw002.optus.com.au (10.10.192.125)
+
+
+ase create below aliases for sptdevwebw002.optus.com.au (10.10.192.125)
+
+
+dev.espresso.optus.com.au
+dev.dept.optus.com.au
+dev.project.optus.com.au
+dev.social.optus.com.au
+dev.mysite.optus.com.au
+
+-----------------------------------------------------------------
+
+RFC#C00077730
+
+LB configuration for OPS DR Servers
+
+
+>> A22RRGIDB02 - Main) /i/slb/virt 170
+ 170: IP4 10.10.50.27,     00:00:5e:00:01:aa, dname opsdrpweb.optus.com.au
+    virtual ports:
+    http: rport http, group 170, OPS_HTTP&HTTPS, backup none, secbkp none, pbind clientip, rtspslb none, dbind
+        real servers:
+         171: opsdrpwebw001.optus.com.au, backup none, 26 ms, group ena, up
+         172: opsdrpwebw002.optus.com.au, backup none, 12 ms, group ena, up
+    https: rport https, group 170, OPS_HTTP&HTTPS, backup none, secbkp none, pbind clientip, rtspslb none, dbind
+        real servers:
+         171: opsdrpwebw001.optus.com.au, backup none, 26 ms, group ena, up
+         172: opsdrpwebw002.optus.com.au, backup none, 12 ms, group ena, up
+
+>> A22RRGIDB02 - Server Load Balancing Information)

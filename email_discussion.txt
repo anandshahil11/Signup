@@ -1,0 +1,102 @@
+Hi Anand, 
+Look like you sending more than 500 emails without authentication. To avoid spam, mail servers will block  ip’s sending more than 500 emails without authentication. If there is any  proper project requirement , please contact ISE team to whitelist your ips/hosts. 
+
+Bibin Ellankil
+Internet Service Engineer | Internet Services Engineering | Technology & Products | Optus 
+T: 02 8082 8864 | 1 Lyonpark Road, Macquarie Park NSW 2113
+optus.com.au 
+This email may contain confidential information. If you are not the intended recipient, please notify the sender immediately and delete this email from your system. You must not disclose this email to anyone without express permission from the sender. The contents of all emails sent to, and received from, Optus may be scanned, stored, or disclosed to others by Optus at Optus' discretion. Optus has exercised care to avoid errors in the information contained in this email but does not warrant that the information is error or omission free.
+??Please think of the environment before printing this email. 
+
+
+_____________________________________________
+From: Maya Gibson 
+Sent: Friday, 18 October 2013 11:24 AM
+To: Anand Kumar; mailblockreview@optusnet.com.au
+Cc: Andrew Kim; EWS Onsite DL; MyBizOnlineSupport; EAI Internet Services Engineering
+Subject: RE: [TT#33262792] RE: oda.issues@optusnet.com.au is blocked to send emails 
+
+
+Hi Anand
+
+Sorry, I cannot increase any limits for sending mail via the optusnet SMTP server. It may be something ISE can do? (Not NCS Server team, not theirs)
+
+Nothing wrong with sending emails from odawww01.syd without authenticating against the SMTP server, I used the root admin account – I have just sent you a test message using the standard ‘mail’ utility, and CC’d myself (I received it ok).
+
+Thanks
+
+Regards
+Maya
+
+_____________________________________________
+From: Anand Kumar 
+Sent: Friday, 18 October 2013 9:49 AM
+To: mailblockreview@optusnet.com.au; Maya Gibson
+Cc: Andrew Kim; EWS Onsite DL; MyBizOnlineSupport
+Subject: RE: [TT#33262792] RE: oda.issues@optusnet.com.au is blocked to send emails 
+Importance: High
+
+
+Hi Team,
+
+Thanks for your email.
+
+Could you please let me know whether you have remove oda.issues@optusnet.com.au account from block list?
+
+@Maya,
+
+Please see the attached email.
+
+Are you able to increase the limit of oda.issues@optusnet.com.au  or we need to engage NCSserver?  
+
+Can you able to test SMTP server suggested below by mailblockreview team?
+
+ << Message: Re: [TT#33262792] RE: oda.issues@optusnet.com.au is blocked to send emails  >> 
+
+Thanks,
+Anand Kumar
+Express and Web Solutions | Optus 
+T: +61280829983 | M: +61426692106 | 1, Lyonpark Road, Macquarie Park, NSW 2113
+www.optus.com.au | Gtalk: anandshahil11@gmail.com
+
+
+
+-----Original Message-----
+From: mailblockreview@optusnet.com.au [mailto:mailblockreview@optusnet.com.au] 
+Sent: Thursday, 17 October 2013 5:27 PM
+To: Anand Kumar
+Subject: Re: [TT#33262792] RE: oda.issues@optusnet.com.au is blocked to send emails 
+
+Dear Anand,
+
+Thank you for your email.
+
+We have received the following instructions,
+
+Please test by NOT using Authenticated SMTP, if the server sending the email is on our network then you should be ok.
+
+Regards,
+Aidan,
+Optus Technical Support Consultant
+http://www.optuszoo.com.au
+Technical support: 13 39 37 (24-hours, 7 days) Billing enquiries: 13 39 37 (8am - 7pm, Mon - Fri, 9am - 5pm Sat)
+
+ ****DISCLAIMER****
+This e-mail may contain confidential information. If you are not the intended recipient, please notify the sender immediately and delete this e-mail from your system. You must not disclose this email to anyone without express permission from the sender. The contents of all emails sent to, and received from, Optus may be scanned, stored, or disclosed to others by Optus at Optus' discretion. Optus has exercised care to avoid errors in the information contained in this e-mail but does not warrant that the information is error or omission free.
+
+> Hi Team,
+> 
+> Could you please check why the below username i.e. oda.issues@optusnet.com.au<mailto:oda.issues@optusnet.com.au>  is blocked to send emails?
+> 
+> Please see below the error TSA is observing when sending emails:
+> 
+> /usr/local/bin/sendEmail -f oda.issues@optusnet.com.au<mailto:oda.issues@optusnet.com.au> -t manasa.denning@thesearchagency.com<mailto:manasa.denning@thesearchagency.com> -s smtp.optusnet.com.au<http://smtp.optusnet.com.au>:25 -o tls=yes -o username=oda.issues@optusnet.com.au<mailto:username=oda.issues@optusnet.com.au> -o password=jboss_odaissues -u "Test" -m "tests"
+> Oct 08 15:54:31 odawww01 sendEmail[9159]: ERROR => Received:            450 4.7.1 <DATA>: Data command rejected: You have sent too many emails in a 24 hour period. Please email mailblockreview@optusnet.com.au<mailto:mailblockreview@optusnet.com.au> if you feel this is in error.
+> 
+> Could you please have this looked at and advice?
+> 
+> Thanks,
+> Anand Kumar
+> Express and Web Solutions | Optus
+> T: +61280829983 | M: +61426692106 | 1, Lyonpark Road, Macquarie Park, 
+> NSW 2113 www.optus.com.au | Gtalk: anandshahil11@gmail.com<mailto:anandshahil11@gmail.com>

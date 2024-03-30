@@ -1,0 +1,122 @@
+Keystore type: JKS
+Keystore provider: SUN
+
+Your keystore contains 17 entries
+
+*******************************************
+*******************************************
+
+
+Alias name: melbourneitprddnsman
+Creation date: Jun 25, 2012
+Entry type: trustedCertEntry
+
+Owner: CN=serviceapi.melbourneit.com, OU=Terms of use at www.verisign.com/rpa (c)05, OU=MIT Services, O=Melbourne IT Ltd, L=Melbourne, ST=Victoria, C=AU
+Issuer: CN=VeriSign Class 3 International Server CA - G3, OU=Terms of use at https://www.verisign.com/rpa (c)10, OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+Serial number: 2b674df395c100e62f862cf85607a9cb
+Valid from: Tue Oct 11 11:00:00 EST 2011 until: Tue Dec 10 10:59:59 EST 2013
+Certificate fingerprints:
+	 MD5:  81:74:A4:93:7C:30:7B:B8:E3:82:22:85:A2:AE:D9:87
+	 SHA1: 7C:C3:5D:04:F6:4D:54:A0:18:56:71:35:48:2E:F7:7A:40:D4:37:07
+	 Signature algorithm name: SHA1withRSA
+	 Version: 3
+
+*******************************************
+*******************************************
+
+
+Alias name: melbourneittestdnsman
+Creation date: Jun 25, 2012
+Entry type: trustedCertEntry
+
+Owner: CN=ote.dns.melbourneit.com, OU=Terms of use at www.verisign.com/rpa (c)05, O=Melbourne IT, L=Melbourne, ST=Victoria, C=AU
+Issuer: CN=VeriSign Class 3 International Server CA - G3, OU=Terms of use at https://www.verisign.com/rpa (c)10, OU=VeriSign Trust Network, O="VeriSign, Inc.", C=US
+Serial number: 5564f815f1da2d03c8c976fd5ebabf4a
+Valid from: Wed Sep 28 10:00:00 EST 2011 until: Sat Sep 28 09:59:59 EST 2013
+Certificate fingerprints:
+	 MD5:  44:85:AF:F1:1C:93:B1:20:FF:95:78:79:A4:2F:B1:11
+	 SHA1: 6D:BA:6E:BA:DE:A5:56:F2:35:50:BC:BC:BA:12:33:6E:B0:9D:BC:3D
+	 Signature algorithm name: SHA1withRSA
+	 Version: 3
+
+
+
+*******************************************
+*******************************************
+Alias name: odajboss02.sit
+Creation date: Mar 29, 2012
+Entry type: trustedCertEntry
+
+Owner: CN=odajboss02.sit.optusnet.com.au, OU=SMB, O=The Search Agency, L=East Greenwich, ST=RI, C=US
+Issuer: CN=odajboss02.sit.optusnet.com.au, OU=SMB, O=The Search Agency, L=East Greenwich, ST=RI, C=US
+Serial number: 4f732db7
+Valid from: Thu Mar 29 02:26:47 EST 2012 until: Wed Jun 27 01:26:47 EST 2012
+Certificate fingerprints:
+	 MD5:  47:06:47:49:96:81:42:1F:EC:9C:F2:D6:5C:CB:C5:8A
+	 SHA1: 83:4D:30:AF:72:42:86:CA:CF:71:61:44:A4:C0:7E:67:F6:94:98:9D
+	 Signature algorithm name: SHA1withDSA
+	 Version: 3
+
+
+*******************************************
+*******************************************
+
+
+Alias name: odajboss01.sit
+Creation date: Mar 29, 2012
+Entry type: trustedCertEntry
+
+Owner: CN=odajboss01.sit.optusnet.com.au, OU=SMB, O=The Search Agency, L=East Greenwich, ST=RI, C=US
+Issuer: CN=odajboss01.sit.optusnet.com.au, OU=SMB, O=The Search Agency, L=East Greenwich, ST=RI, C=US
+Serial number: 4f732c79
+Valid from: Thu Mar 29 02:21:29 EST 2012 until: Wed Jun 27 01:21:29 EST 2012
+Certificate fingerprints:
+	 MD5:  2E:CE:6F:C7:FD:28:9D:46:8D:FD:6C:8D:72:41:9D:8F
+	 SHA1: AF:A6:18:B5:74:D3:D5:14:8F:B3:E5:9C:31:21:5F:DD:79:0B:BA:45
+	 Signature algorithm name: SHA1withDSA
+	 Version: 3
+
+
+*******************************************
+*******************************************
+
+
+Alias name: melbourneittest
+Creation date: Jun 22, 2012
+Entry type: trustedCertEntry
+
+Owner: CN=cptest.internetnamesww.com, OU=Terms of use at www.verisign.com/rpa (c)05, OU=MIT, O=Melbourne IT Ltd, L=Melbourne, ST=Victoria, C=AU
+Issuer: OU=www.verisign.com/CPS Incorp.by Ref. LIABILITY LTD.(c)97 VeriSign, OU=VeriSign International Server CA - Class 3, OU="VeriSign, Inc.", O=VeriSign Trust Network
+Serial number: 4bcd11034277b6b30ee99160a632a346
+Valid from: Tue Jun 01 10:00:00 EST 2010 until: Sun Jul 01 09:59:59 EST 2012
+Certificate fingerprints:
+	 MD5:  DA:3E:38:0E:8B:0A:A6:39:A2:DB:17:F3:03:7D:F2:B0
+	 SHA1: AD:C2:E2:DC:C5:06:09:75:45:8C:1D:1A:A2:BA:7C:FE:D8:FF:16:D0
+	 Signature algorithm name: SHA1withRSA
+	 Version: 3
+
+
+
+*******************************************
+*******************************************
+
+
+Alias name: tsa_dev
+Creation date: Oct 25, 2011
+Entry type: trustedCertEntry
+
+Owner: CN=Kyle S. Bober, OU=Admax, O=The Search Agency, L=East Greenwich, ST=Rhode Island, C=US
+Issuer: CN=Kyle S. Bober, OU=Admax, O=The Search Agency, L=East Greenwich, ST=Rhode Island, C=US
+Serial number: 4e935527
+Valid from: Tue Oct 11 07:27:19 EST 2011 until: Mon Jan 09 07:27:19 EST 2012
+Certificate fingerprints:
+	 MD5:  E9:91:9F:A9:F3:DF:22:29:EB:3B:C2:72:32:12:F9:2C
+	 SHA1: 0F:2A:19:D2:52:00:29:41:5A:E0:35:A4:C3:75:81:98:B6:01:43:F2
+	 Signature algorithm name: SHA1withDSA
+	 Version: 1
+
+
+
+*******************************************
+*******************************************
+
